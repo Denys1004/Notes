@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<!-- PAGE TITLE -->
+<!-- <div class="page_title_container">
+    <h3>Home</h3>
+</div> -->
+<!-- IMAGE SLIDER -->
+<div id="image_slider_container">
+    <div id="image_slider">
+        <img class="gallery_pic" src="../static/images/notes1.jpg" alt="notes1">
+    </div>
+</div>
+
+<div id="animated_bg"></div>
+<div class="steps_page_title">
+    <h3>HOW DOES IT WORK?</h3>
+</div>
+<div id="app_steps_container">
+    <div class="app_all_steps">
+
+        <div class="app_one_step">
+            <div class="app_step_icon">
+                <img src="{% static 'images/create_theme.svg' %}" alt="">
+            </div>
+            <div class="app_step_title">
+                <h3>Create Topic</h3>
+            </div>
+            <div class="app_step_desc">
+                <p>Here you can create a topic for which you will write notes. The number of topics is unlimited. Each topic has its own page for creating notes where you can see notes that are already created for that topic. All topics will be displayed on the sidebar for easier navigation and search.</p>
+            </div>
+        </div>
+
+        <div class="app_one_step middle">
+            <div class="app_step_icon">
+                <img src="{% static 'images/create_posts.svg' %}" alt="">
+            </div>
+            <div class="app_step_title">
+                <h3>Add Notes</h3>
+            </div>
+            <div class="app_step_desc">
+                <p>You can write notes on each topic. Each note can contain a title that will be displayed in the sidebar with a link to this note. To find the note in a specific topic click on the down arrow next to the topic name (you'll see it when topic has at least one note), it will open up a list of the notes below.</p>
+            </div>
+        </div>
+
+        <div class="app_one_step">
+            <div class="app_step_icon">
+                <img src="{% static 'images/enjoy.svg' %}" alt="">
+            </div>
+            <div class="app_step_title">
+                <h3>Manage</h3>
+            </div>
+            <div class="app_step_desc">
+                <p>You can add new topics and delete old ones. You can edit the notes, modify them, and delete them as needed. A note can contain pictures and videos (you can find these options in a text editor). The number of topics and notes is unlimited. Enjoy!</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}

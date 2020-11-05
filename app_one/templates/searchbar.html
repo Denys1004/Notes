@@ -1,0 +1,12 @@
+<!-- Search -->
+<div class="search_container">
+    <form action="{% url 'search' %}" method="GET">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="search" class="form-control mb-1" name="zapros" placeholder="search">
+            <div class="buttons_container" id="search_btn">
+                <button class="btn">Search</button>
+            </div>
+        </div>
+    </form>
+</div>

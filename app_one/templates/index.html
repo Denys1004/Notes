@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'head.html' %}
+
+    <title>Document</title>
+</head>
+<body>
+
+    {% include 'nav.html' %}
+
+    <main id="333">
+        <div class="page_container">
+
+            <div class="page_left">
+                <div id="sidebar_container">
+        
+                    <div class="sidebar1">
+                        <div class="sidebar_top">
+                            <div class="image_container1">
+                                <img class="image_container1_img" src="{% static 'images/arrow_to_right.png'%}" alt="arrow_to_the_side">
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="sidebar2">
+                        <div class="sidebar_top2">
+                            <div class="image_container2">
+                                <img class="image_container2_img" src="{% static 'images/arrow_to_left.png'%}" alt="arrow_to_the_side">
+                            </div>
+                            <div class="sidebar2_title">
+                                <div class="sidebar2_title_left">
+                                    <a href="{% url 'home' %}">TOPICS</a>
+                                </div>
+                                <div class="sidebar2_title_right">
+                                    <p id="sidebar_create_theme"><ion-icon name="add-circle-outline"></ion-icon></p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="sidebar2_bottom">
+        
+                            <div id="sidebar_all_themes_container">
+        
+                                {% for theme in all_themes %}
+                                <div class="one_theme">
+        
+                                    
+                                    <div class="sidebar_one_theme_container">
+                                        {% if theme.posts.all %}
+                                        <p class="show_posts_option">
+                                            <img src="{% static 'images/drop-down-arrow.svg' %}" alt="down-arrow">
+                                        </p>
+                                        {% else %}
+                                        <p class="no_posts">
+                                            <img src="{% static 'images/drop-down-arrow.svg' %}" alt="down-arrow">
+                                        </p>
+                                        {% endif %}
+                                        <div class="sidebar_theme_title">
+                                            <a href="{% url 'theme' theme.id %}">{{theme.name}}</a>
+                                        </div>
+                                        <p class="sidebar_theme_option_container">
+        
+                                            <a href="{% url 'delete_theme' theme.id %}"  class="sidebar_theme_option">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </a>
+
+                                        </p>
+                                    </div>
+                                
+        
+                                    <div class="sidebar_all_posts_container">
+                                        {% for post in theme.posts.all %}
+                                        <div class="one_post">
+                                            <!-- <a href="#{{post.theme.id}}{{post.id}}"  class="sidebar_post_link"> -->
+                                            <a href="/theme/{{theme.id}}/#{{post.theme.id}}{{post.id}}"  class="sidebar_post_link">
+                                                <div class="sidebar_one_post_container">
+                                                    <div class="sidebar_post_title">
+                                                        <p>{{post.title}}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% endfor%}
+                                    </div>
+        
+                                </div>
+                                {% endfor%}
+        
+        
+        
+        
+        
+        
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="page_right">
+                {% block content %} 
+
+                {% endblock content %}
+            </div>
+            
+        </div>
+    </main>
+
+
+    <div id="popout1" class="create_theme_popout_container">
+        <div class="popout_form_container">
+            <div class="popout_title_container">
+                <div class="popout_title_left">
+                    <h3>Create Topic</h3>
+                </div>
+                <div class="popout_title_right">
+                    <div  id="close_popout1" ><img src="{% static 'images/cancel.svg' %}" alt=""></div>
+                </div>
+            </div>
+
+            <div id="popout_form">
+                <form action="{% url 'create_theme' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="popout_form_input_container">
+                        <input type="text" name="name"  placeholder="Topic Name">
+                    </div>
+                    <button class="popout_form_create_btn">CREATE</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    <!-- BUTTON UP -->
+    <div id="button_up_container">
+        <a href="#333"><img src="{% static 'images/arrow_up.png' %}" alt=""></a>
+        <!-- <a href="#navigation"><img src="{% static 'images/arrow_up.png' %}" alt=""></a> -->
+    </div>
+
+</body>
+</html>
+
