@@ -363,7 +363,13 @@ main {
   min-height: calc(100vh - 44px);
   z-index: 100;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+.page_left ::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  /* make scrollbar transparent */
 }
 
 #page_right {
@@ -514,7 +520,6 @@ main {
   width: 100%;
   top: 44px;
   left: 0;
-  overflow: scroll;
 }
 
 .sidebar_one_theme_container {
