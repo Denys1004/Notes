@@ -8,7 +8,6 @@ from django.contrib import messages
 #***********************************************************************
 def index(request):	
     return render(request, 'welcome.html')	
-
 # Home
 #***********************************************************************
 def home(request):	
@@ -19,7 +18,8 @@ def home(request):
         context = {
             'all_posts': users_posts,
             'all_themes': users_themes,
-            'user' : user
+            'user' : user,
+            "page_title": 'Home'
         }
     return render(request, 'home.html', context)	
 
@@ -87,7 +87,8 @@ def search(request):
             'post_results': result,
             'zapros': zapros,
              'all_posts': users_posts,
-            'all_themes': users_themes
+            'all_themes': users_themes,
+            "page_title": 'Result'
         }
         return render(request, 'search_result.html', context)
     else:
@@ -113,7 +114,8 @@ def theme(request, theme_id):
     context = {
         'theme': needed_theme,
         'all_themes': users_themes,
-        'all_posts' : theme_posts
+        'all_posts' : theme_posts,
+        "page_title": needed_theme.name
     }
     return render(request,'theme.html', context )
 
@@ -167,7 +169,8 @@ def edit_post(request, post_id):
     if request.method == "GET":	
         context = {
             'needed_post': needed_post,
-            'all_themes': users_themes
+            'all_themes': users_themes,
+            "page_title": "Edit"
         }
         return render(request, "edit_post.html", context)
     else:
