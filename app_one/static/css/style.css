@@ -366,7 +366,7 @@ main {
   overflow-y: scroll;
 }
 
-.page_left ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0px;
   background: transparent;
   /* make scrollbar transparent */

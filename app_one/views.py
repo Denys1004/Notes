@@ -7,6 +7,8 @@ from django.contrib import messages
 # Welcome Page
 #***********************************************************************
 def index(request):	
+    if 'user_id' in request.session:
+        return redirect('/home/')
     return render(request, 'welcome.html')	
 # Home
 #***********************************************************************
@@ -86,7 +88,7 @@ def search(request):
         context = {
             'post_results': result,
             'zapros': zapros,
-             'all_posts': users_posts,
+            'all_posts': users_posts,
             'all_themes': users_themes,
             "page_title": 'Result'
         }

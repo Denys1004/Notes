@@ -146,10 +146,11 @@ main{
     z-index: 100;
     height: 100%;
     overflow-y: scroll;
-    ::-webkit-scrollbar {
-        width: 0px;
-        background: transparent; /* make scrollbar transparent */
-    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 
 #page_right{
