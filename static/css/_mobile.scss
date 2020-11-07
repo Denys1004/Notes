@@ -1,0 +1,36 @@
+@media (max-width: 420px){
+    .app_one_step{
+        margin-bottom: 20px;
+        .app_step_icon, .app_step_title, .app_step_desc{
+            img{
+                width: 120px;
+                height: auto;
+            }
+        }
+    }
+    .middle{
+        margin: 0 0 20px;
+    }
+
+    // THEME
+    .create_post_form{
+        width: 100%;
+        padding: 10px;
+        background-color: $bg_dark_color;
+        border-left: 2px solid $orange_medium;
+        border-right: 2px solid $orange_medium;
+    }
+    .all_posts_here{
+        padding: 10px;
+    }
+    .post{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .one_post_title_left{
+        h5{
+            font-size: 11px;
+        }
+    }
+}
+

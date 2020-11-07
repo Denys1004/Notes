@@ -1,0 +1,62 @@
+<!-- NAVIGATION -->
+{% load static %}
+<header>
+    <div id="navigation">
+
+        <!-- nav left -->
+        <div id="nav_left">
+            <a href="/home/">
+                <div id="logo"><ion-icon name="home"></ion-icon></div>
+            </a>
+        </div>
+
+        <!-- nav center -->
+        <div id="nav_cener">
+            <div id="searchbar">
+                <form action="{% url 'search' %}" method="GET">
+                    {% csrf_token %}
+                    <div id="iput_field">
+                        <input type="search" class="form-control" name="zapros" placeholder="search">
+                    </div>
+                    <button id="search_btn"><img src="{% static 'images/magnifying-glass.svg'%}" alt="magnifying"></button>
+                </form>
+            </div>
+        </div>
+
+        <!-- nav right -->
+        <div id="nav_right">
+            <a class="active_user_container">
+                <div id="initials">
+                    <p>{{request.session.initials}}</p>
+                </div>
+                <div class="initials_dropdown">
+                    <div id="initials_arrow_down">
+                        <img src="{% static 'images/drop-down-arrow.svg' %}" alt="down-arrow">
+                    </div>
+                    <div id="initials_arrow_up">
+                        <img src="{% static 'images/up-arrow copy.svg' %}" alt="up-arrow">
+                    </div>
+                </div>
+            </a>
+            
+            <div id="drop_menu_container">
+                <a class="login_drop_menu" href="{% url 'logout' %}">
+                    <div class="drop_menu_link">
+                        <p>Logout</p>
+                    </div>
+                </a>
+                <!-- <a class="login_drop_menu" href="{% url 'login' %}">
+                    <div class="drop_menu_link">
+                        <p>Profile</p>
+                    </div>
+                </a>
+                <a class="login_drop_menu" href="{% url 'login' %}">
+                    <div class="drop_menu_link">
+                        <p>Help</p>
+                    </div>
+                </a> -->
+            </div>
+        </div>
+
+    </div>
+</header>

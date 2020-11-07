@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<!-- PAGE TITLE -->
+<div class="page_title_container">
+    <h3>EDIT POST</h3>
+</div>
+
+<div class="form_container">
+    <div class="create_post_form">
+        <div class="page_title_container title_create_post">
+            <h3>EDIT</h3>
+        </div>
+        <form action="{% url 'edit_post' needed_post.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="step_todo">
+                <p class='step'>1. <span>Change Title</span> if needed( it would be a link to  this Note under Theme Name in  THEMES )</p>
+            </div>
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" value="{{ needed_post.title }}">
+            </div>
+            <div class="step_todo">
+                <p class='step'>2. <span>Update the Note</span> and press <span>UPDATE</span> button</p>
+            </div>
+            <div class="form-group">
+                <textarea id="summernote" name="editordata">{{needed_post.content}}</textarea>
+            </div>
+    
+            <div class="post_button_container">
+                <button class="post_button">UPDATE</button>
+                <a href="{% url 'theme'  needed_post.theme.id %}" class="clear_button">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}

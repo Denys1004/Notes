@@ -1,0 +1,114 @@
+.form_container{
+    width: 100%;
+    .note-editable{
+        min-height: 20vh;
+    }
+}
+
+.create_post_form{
+    width: 90%;
+    margin: auto;
+    padding: 10px 20px 20px;
+    background-color: $bg_dark_color;
+    border-left: 12px solid $orange_medium;
+    border-right: 12px solid $orange_medium;
+}
+.title_create_post{
+    h3{
+        color: #fff;
+    }
+}
+.step_todo{
+    p{
+        color:$orange_medium;
+        font-weight: 200;
+        font-size: 12px;
+        span{
+            color: #fff;
+        }
+    }
+}
+
+.post_button_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button{
+        padding: 8px 15px;
+        border: none;
+        outline: none;
+        letter-spacing: .3;
+    }
+    .post_button{
+        background-color: $orange_medium;
+        color: #fff;
+        &:hover{
+            background-color: $orange_dark;
+        }
+    }
+    .clear_button{
+        padding: 8px 15px;
+        background-color: $light_grey_hover;
+        color: $bg_dark_color;
+        &:hover{
+            background-color: $orange_medium;
+        }
+    }
+}
+
+
+
+
+// ALL POST
+// ***************************************************************************** 
+.all_posts_here{
+    width: 100%;
+    padding: 15px 0;
+}
+
+
+.post{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding: 0 10px 10px;
+}
+
+
+
+.date_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4px;
+    .date_right{
+        width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img{
+            width: 14px;
+            height: auto;
+            opacity: .7;
+            cursor: pointer;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    .date_small{
+        width: 100%;
+        small{
+            color: $bg_dark_color;
+            opacity: .6;
+        }
+    }
+}
+.one_post_title_left{
+    padding-bottom: 6px;
+    h5{
+        font-weight: 600;
+    }
+}

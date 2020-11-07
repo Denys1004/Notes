@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- PAGE TITLE -->
+<div class="page_title_container">
+    <h3>{{theme.name}}</h3>
+</div>
+
+<div class="form_container">
+
+    <div class="create_post_form">
+        <div class="page_title_container title_create_post">
+            <h3>CREATE NOTE</h3>
+        </div>
+        <form action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="step_todo">
+                <p class='step'>1. <span>Type Title</span>  ( it would be a link to  this Note under Topic Name in  TOPICS )</p>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" placeholder="Note Title">
+            </div>
+            <input type="hidden" name="theme" value="{{theme.id}}">
+            <div class="step_todo">
+                <p class='step'>2. <span>Create Note</span> and press <span>POST</span> button</p>
+            </div>
+            <div class="form-group">
+                <textarea id="summernote" name="editordata"></textarea>
+            </div>
+    
+            <div class="post_button_container">
+                <button class="post_button">Save</button>
+                <a href="{% url 'theme'  theme.id %}" class="clear_button">Clear</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="all_posts_here">
+    {% for post in all_posts %}
+    <div id="{{post.theme.id}}{{post.id}}" class="post">
+
+
+            <div class="date_container">
+
+                <div class="date_small"><small>{{post.created_at|date:'Y-m-d'}}</small></div>
+
+                <div class="date_right">
+                    <div class="edit_photo">
+                        <a href="{% url 'delete_post' post.id %}"><img src="{% static 'images/delete.svg' %}" alt="delete"></a>
+                    </div>
+                    <div class="edit_photo">
+                        <a href="{% url 'edit_post' post.id %}"><img src="{% static 'images/edit.svg' %}" alt="edit"></a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="one_post_title_left">
+                <h5>{{post.title}}</h5>
+            </div>
+
+        <div class="one_post_content">
+            <p>{{ post.content|safe }}</p>
+        </div>
+    </div>
+    {% endfor%}
+</div>
+    
+<!-- <div class="choose_color">
+    <form action="POST">
+        {% csrf_token %}
+
+    </form>
+</div> -->
+
+
+
+
+
+
+
+
+
+{% endblock content %}

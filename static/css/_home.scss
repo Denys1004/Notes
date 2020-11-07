@@ -1,0 +1,78 @@
+.steps_page_title{
+    text-align: center;
+    background-color: #fff;
+    padding-top: 20px;
+}
+
+
+#app_steps_container{
+    width: 100%;
+    background-color: #fff;
+}
+
+.app_all_steps{
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.app_one_step{
+    flex: 0.9;
+    display: inline-block;
+    .app_step_icon, .app_step_title, .app_step_desc{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 160px;
+            height: auto;
+        }
+    }
+    .app_step_title{
+        color: $orange_medium;
+        padding: 5px 0;
+    }
+    .app_step_desc{
+        font-size: 12px;
+    }
+}
+
+.middle{
+    margin: 0 40px;
+}
+
+
+// IMAGE SLIDER
+#image_slider_container{
+    width: 100%;
+}
+#image_slider{
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 960px){
+    .app_all_steps{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+    }
+    .app_one_step{
+        margin-bottom: 20px;
+    }
+    .middle{
+        margin: 0 0 20px;
+    }
+}
